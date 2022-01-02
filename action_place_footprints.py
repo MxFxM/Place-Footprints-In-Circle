@@ -9,6 +9,9 @@ if __name__ == '__main__':
 else:
     from . import circlesettings
 
+def reference(footprint):
+        return int(footprint.GetReference()[1:])
+
 class InitialDialog(circlesettings.MyDialog1):
     # hack for new wxFormBuilder generating code incompatible with old wxPython
     # noinspection PyMethodOverriding
@@ -55,6 +58,8 @@ class PlaceFootprintsInCircle(pcbnew.ActionPlugin):
         selected_names = []
         for mod in selected_footprints:
             selected_names.append(f"{mod.GetReference()}")
+        
+        selected_footprints.sort(key=reference)
         
         _pcbnew_frame = [x for x in wx.GetTopLevelWindows() if 'pcb' in x.GetTitle().lower()][0]
         
