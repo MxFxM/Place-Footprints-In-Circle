@@ -70,10 +70,12 @@ class PlaceFootprintsInCircle(pcbnew.ActionPlugin):
                 else:
                     radius = float(dlg.m_textCtrl1.GetValue())/25.4
                 offsetrotation = float(dlg.m_textCtrl2.GetValue()) / 360 * 2 * math.pi
-                spacing = 2 * math.pi / len(selected_footprints)
+                startangle = float(dlg.m_textCtrl3.GetValue()) / 360 * 2 * math.pi
+                stopangle = float(dlg.m_textCtrl4.GetValue()) / 360 * 2 * math.pi
+                spacing = (stopangle - startangle) / len(selected_footprints)
                 rotation = spacing
                 for index, footprint in enumerate(selected_footprints):
-                    angle = spacing * index
+                    angle = spacing * index + startangle
                     x = math.cos(angle) * radius * SCALE
                     y = math.sin(angle) * radius * SCALE
                     position = [int(x), int(y)]

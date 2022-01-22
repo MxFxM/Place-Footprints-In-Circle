@@ -17,7 +17,7 @@ import wx.xrc
 class MyDialog1 ( wx.Dialog ):
 
     def __init__( self, parent ):
-        wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 170,194 ), style = wx.DEFAULT_DIALOG_STYLE )
+        wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = wx.EmptyString, pos = wx.DefaultPosition, size = wx.Size( 170,311 ), style = wx.DEFAULT_DIALOG_STYLE )
 
         self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
@@ -38,6 +38,22 @@ class MyDialog1 ( wx.Dialog ):
 
         self.m_textCtrl2 = wx.TextCtrl( self, wx.ID_ANY, u"0", wx.DefaultPosition, wx.DefaultSize, 0 )
         bSizer1.Add( self.m_textCtrl2, 0, wx.ALL, 5 )
+
+        self.m_staticText3 = wx.StaticText( self, wx.ID_ANY, u"Starting angle [deg]", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_staticText3.Wrap( -1 )
+
+        bSizer1.Add( self.m_staticText3, 0, wx.ALL, 5 )
+
+        self.m_textCtrl3 = wx.TextCtrl( self, wx.ID_ANY, u"0", wx.DefaultPosition, wx.DefaultSize, 0 )
+        bSizer1.Add( self.m_textCtrl3, 0, wx.ALL, 5 )
+
+        self.m_staticText4 = wx.StaticText( self, wx.ID_ANY, u"Stopping angle [deg]", wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_staticText4.Wrap( -1 )
+
+        bSizer1.Add( self.m_staticText4, 0, wx.ALL, 5 )
+
+        self.m_textCtrl4 = wx.TextCtrl( self, wx.ID_ANY, u"360", wx.DefaultPosition, wx.DefaultSize, 0 )
+        bSizer1.Add( self.m_textCtrl4, 0, wx.ALL, 5 )
 
         m_sdbSizer2 = wx.StdDialogButtonSizer()
         self.m_sdbSizer2OK = wx.Button( self, wx.ID_OK )
